@@ -1,0 +1,53 @@
+$ git config --global user.name "John Doe"
+$ git config --global user.email johndoe@example.com
+$ git config --list
+
+//Initializing a Repository in an Existing Project Directory
+//Change current directory to existing project directory
+$ git init						//Creates new subdirectory .git in the project directory
+$ git add *.c 					//Add *.c files to tracked
+$ git commit -m 'project start' //a Git repository with tracked files and an initial commit
+
+
+//Cloning an Existing Repository from github
+$ git clone https://github.com/libgit2/libgit2
+
+
+$ git status					//check status of files
+$ git add newfile				//begin tracking file 'newfile'
+
+//Ignoring Files
+//Files like object files should not be tracked
+$ cat .gitignore				//create  .gitignore
+*.[oa]							//ignore files *.o and *.a
+*~								//ignore files ending with ~
+
+//Remove files
+$ git rm --cached README		//remove README from tracked but still stay in working directory
+
+//Rename file
+$ git mv file_from file_to		//change name from file_from to file_to
+
+$ git commit					//commit files in stage area
+$ git commit -m "My comments"	//commit files in stage area with comments
+
+$ git commit -a -m "Comments"	//commit files that are tracked and changed
+								//simple. don't have to setup staging area
+								
+// View log history
+$ git log
+$ git log -p -2					//shows difference in last 2 commits
+
+//Undo mistake of making admendment to previous commit
+$ git commit -m 'initial commit'	//previous commit
+$ git add forgotten_file			//add forgotten file
+$ git commit --amend				//recommit. Result is there is only 1 commit						
+
+$ git remote add pb https://github.com/paulboone/ticgit
+$ git fetch pb						//download to local repostitory. Not merged with working directory
+
+//Running git pull generally fetches data from the server you originally cloned from and automatically tries to merge it into the code you’re currently working on.
+$ git pull
+
+$ git push							//push to remote
+
